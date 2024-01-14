@@ -26,8 +26,8 @@ import { ref } from 'vue'
 import { format } from 'date-fns'
 import { useRouter } from 'vue-router'
 
-const batches = ref([])
-const headers = [
+const batches: any = ref([])
+const headers: any = [
   {
     title: 'Nume Lot',
     key: 'title'
@@ -42,9 +42,9 @@ const headers = [
     sortable: false
   }
 ]
-const router = useRouter()
+const router: any = useRouter()
 
-const loadingData = ref(false)
+const loadingData: any = ref(false)
 const getBatches = async () => {
   try {
     loadingData.value = true

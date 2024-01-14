@@ -23,9 +23,9 @@ import { collection, getDocs } from 'firebase/firestore'
 import { ref } from 'vue'
 
 const route = useRoute()
-const headers = ref([])
-const batchData = ref([])
-const loading = ref(false)
+const headers: any = ref([])
+const batchData: any = ref([])
+const loading: any = ref(false)
 const getBatchData = async () => {
   try {
     loading.value = true

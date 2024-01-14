@@ -51,9 +51,9 @@ import * as XLSX from 'xlsx'
 import { addDoc, collection } from 'firebase/firestore'
 import { batchesRef } from '@/plugins/firebase'
 
-const tableData = ref([])
+const tableData: any = ref([])
 const headers: any = ref()
-const selectedFile = ref(null)
+const selectedFile: any = ref(null)
 
 const parseXLSXData = (file) => {
   const reader = new FileReader()
@@ -74,9 +74,9 @@ const parseXLSXData = (file) => {
       }
     })
     // Data starts from the second row
-    tableData.value = jsonData.slice(1).filter(row => row.length > 0).map((row) => {
+    tableData.value = jsonData.slice(1).filter((row: any) => row.length > 0).map((row: any) => {
       const obj = {}
-      headers.value.forEach((header, index) => {
+      headers.value.forEach((header: any, index: any) => {
         obj[header.key] = row[index]
       })
       return obj
