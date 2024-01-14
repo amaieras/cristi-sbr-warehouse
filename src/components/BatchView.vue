@@ -31,7 +31,7 @@ const getBatchData = async () => {
     loading.value = true
     const collectionRef = collection(db, 'batches/' + route.params.id + '/phones')
     const querySnapshot = await getDocs(collectionRef)
-    headers.value = Object.keys(querySnapshot.docs[0]?.data()).map(h => {
+    headers.value = Object.keys(querySnapshot.docs[0]?.data()).map((h: any) => {
       return {
         title: h,
         key: h,

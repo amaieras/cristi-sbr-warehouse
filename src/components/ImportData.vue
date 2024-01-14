@@ -55,7 +55,7 @@ const tableData: any = ref([])
 const headers: any = ref()
 const selectedFile: any = ref(null)
 
-const parseXLSXData = (file) => {
+const parseXLSXData = (file: File) => {
   const reader = new FileReader()
   reader.onload = (e) => {
     const data = new Uint8Array(e.target.result as any)
@@ -114,7 +114,7 @@ const importFileToFirestore = async () => {
 
     // Add phones to the "phones" collection
     await Promise.all(
-      tableData.value.map(async (phoneObject) => {
+      tableData.value.map(async (phoneObject: any) => {
         await addDoc(phonesCollectionRef, phoneObject)
       })
     )

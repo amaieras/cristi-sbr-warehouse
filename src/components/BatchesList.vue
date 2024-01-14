@@ -65,7 +65,7 @@ const getBatches = async () => {
     loadingData.value = false
   }
 }
-const goToBatch = (batch) => {
+const goToBatch = (batch: any) => {
   router.push({ name: 'BatchView', params: { id: batch.id } })
 }
 getBatches()
