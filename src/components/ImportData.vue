@@ -58,14 +58,14 @@ const selectedFile: any = ref(null)
 const parseXLSXData = (file: File) => {
   const reader = new FileReader()
   reader.onload = (e) => {
-    const data = new Uint8Array(e.target.result as any)
+    const data = new Uint8Array(e.target?.result as any)
     const workbook = XLSX.read(data, { type: 'array' })
     const sheetName = workbook.SheetNames[0]
     const sheet = workbook.Sheets[sheetName]
-    const jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 })
+    const jsonData: any = XLSX.utils.sheet_to_json(sheet, { header: 1 })
 
     // Extract headers dynamically
-    headers.value = jsonData[0].map(h => {
+    headers.value = jsonData[0].map((h: any) => {
       return {
         title: h,
         key: h,
@@ -75,7 +75,7 @@ const parseXLSXData = (file: File) => {
     })
     // Data starts from the second row
     tableData.value = jsonData.slice(1).filter((row: any) => row.length > 0).map((row: any) => {
-      const obj = {}
+      const obj: any = {}
       headers.value.forEach((header: any, index: any) => {
         obj[header.key] = row[index]
       })

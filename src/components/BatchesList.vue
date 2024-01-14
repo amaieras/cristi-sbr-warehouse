@@ -6,7 +6,7 @@
   >
     <template #item.title="{ item }">
       <div class="link-title" @click="goToBatch(item)">
-        {{ item.title }}
+        {{ (item as any).title }}
         <v-icon class="ml-1" size="x-small">mdi-open-in-app</v-icon>
       </div>
     </template>
